@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar – MisNotas</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #f5f2eb;
+        color: #1a1714;
+      }
+
+      header {
+        background: #fffdf8;
+        border-bottom: 1px solid #e0dbd0;
+        padding: 20px 40px;
+      }
+
+      header h1 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.6rem;
+      }
+      header h1 span {
+        color: #d45f2e;
+      }
+
+      .main {
+        max-width: 640px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .card {
+        background: #fffdf8;
+        border: 1px solid #e0dbd0;
+        border-radius: 12px;
+        padding: 28px;
+      }
+
+      .card h2 {
+        font-family: "Syne", sans-serif;
+        font-size: 0.9rem;
+        color: #7a746a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid #e0dbd0;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.95rem;
+        background: #f5f2eb;
+        margin-bottom: 14px;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #d45f2e;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .etiquetas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .etiquetas label {
+        background: #e8e3d8;
+        border-radius: 20px;
+        padding: 5px 14px;
+        font-size: 0.82rem;
+        cursor: pointer;
+      }
+
+      .etiquetas label:has(input:checked) {
+        background: #d45f2e;
+        color: white;
+      }
+      .etiquetas input {
+        display: none;
+      }
+
+      .acciones {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        background: #d45f2e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 22px;
+        font-family: "DM Sans", sans-serif;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-out {
+        background: transparent;
+        color: #7a746a;
+        border: 1px solid #e0dbd0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Mis<span>Notas</span></h1>
+    </header>
+
+    <div class="main">
+      <div class="card">
+        <h2>Editar nota</h2>
+        <form action="/editar/{{ nota.id }}" method="POST">
+          <input type="text" name="titulo" value="{{ nota.titulo }}" required />
+          <textarea name="contenido">{{ nota.contenido }}</textarea>
+          <div class="etiquetas">
+            {% for e in etiquetas %}
+            <label>
+              <input
+                type="checkbox"
+                name="etiquetas"
+                value="{{ e }}"
+                {%
+                if
+                e
+                in
+                nota.etiquetas
+                %}checked{%
+                endif
+                %}
+              />
+              {{ e }}
+            </label>
+            {% endfor %}
+          </div>
+          <div class="acciones">
+            <button class="btn">Guardar cambios</button>
+            <a href="/" class="btn btn-out">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
