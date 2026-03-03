@@ -1,6 +1,14 @@
 # MisNotas 📝
 
-Esta es una aplicación web para gestionar notas personales, construida con Flask. Permite crear, editar, eliminar y buscar notas con soporte para etiquetas.
+Una aplicación web para gestionar notas personales, construida con Flask. Permite crear, editar, eliminar y buscar notas con soporte para etiquetas.
+
+## 🌐 Acceso en línea
+
+La aplicación está desplegada y disponible en:
+
+**https://misnotaspruebapythonprokodland.onrender.com**
+
+> Nota: Desplegada en Render, al estar en el plan gratuito si la app estuvo inactiva puede tardar unos segundos en cargar la primera vez.
 
 ## ¿Qué hace?
 
@@ -15,9 +23,11 @@ Esta es una aplicación web para gestionar notas personales, construida con Flas
 - Python 3
 - Flask 3.0.3
 
-## Instalación y uso
+## Instalación y uso local
 
-1. Clona o descarga el proyecto
+Si prefieres correr el proyecto en tu computador:
+
+1. Clona el repositorio
 2. Instala las dependencias:
 
 ```bash
@@ -41,13 +51,13 @@ notas-app/
 ├── README.md           # Este archivo
 └── templates/
     ├── index.html      # Página principal (lista y formulario)
-    └── editar.html     # Página de edición de nota
+    └── editar.html     # Página de edición de notas
 ```
 
 ## Notas sobre el almacenamiento
 
-Las notas se guardan en memoria mientras la aplicación esté corriendo. Al reiniciar el servidor, los datos se pierden. Para persistencia real se podría integrar una base de datos.
+Las notas se guardan en memoria mientras la aplicación esté corriendo. Al reiniciar el servidor, los datos se pierden. Si se requiriera persistencia real se podría integrar una base de datos.
 
 ## Autoría
 
-Desarrollado por Daniel Alejandro Cangrejo López para la prueba de Python Pro
+Desarrollado por Daniel Alejandro Cangrejo López para aplicar a tutor de Python Pro de Kodland.
