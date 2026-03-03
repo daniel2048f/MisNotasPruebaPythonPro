@@ -25,7 +25,7 @@ La aplicación está desplegada y disponible en:
 
 ## Instalación y uso local
 
-Si prefieres correr el proyecto en tu computador:
+Para correr el proyecto en tu computador:
 
 1. Clona el repositorio
 2. Instala las dependencias:
